@@ -1,0 +1,14 @@
+#!name=定点范围19
+#!desc=可以修改特定软件的范围
+[Rule]
+DOMAIN-KEYWORD,patentexam,DIRECT
+FINAL,DIRECT
+
+[URL Rewrite]
+^https:\/\/app2.patentexam.com.* direct
+
+[Script]
+usecar=type=http-response,pattern=https://app2.patentexam.com.cn/nbtaxi/api/punch/queryWorkPointList,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ilzge/usecar/main/usecar.js,script-update-interval=86400
+
+[MITM]
+hostname = %APPEND% *.patentexam.com.cn
