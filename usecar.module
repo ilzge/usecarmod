@@ -1,4 +1,4 @@
-#!name=定点范围19
+#!name=定点范围20250416
 #!desc=可以修改特定软件的范围
 [Rule]
 DOMAIN-KEYWORD,patentexam,DIRECT
