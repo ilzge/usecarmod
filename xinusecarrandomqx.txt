@@ -1,0 +1,29 @@
+function generateNonZeroRandom(length) {
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += Math.floor(Math.random() * 9 + 1).toString();
+    }
+    return result;
+}
+
+let body = $request.body;
+
+if (body) {
+    // 匹配任意数值，捕获前缀和后缀引号
+    const lonReg = /("longitude"\s*:\s*"?)\d+\.?\d*("?)/g;
+    const latReg = /("latitude"\s*:\s*"?)\d+\.?\d*("?)/g;
+
+    const lonSuffix = generateNonZeroRandom(12);
+    const latSuffix = generateNonZeroRandom(12);
+
+    // 使用函数式替换，彻底规避 $1116 这种歧义
+    body = body.replace(lonReg, (match, p1, p2) => {
+        return p1 + "116.30" + lonSuffix + p2;
+    });
+
+    body = body.replace(latReg, (match, p1, p2) => {
+        return p1 + "39.82" + latSuffix + p2;
+    });
+}
+
+$done({ body });
