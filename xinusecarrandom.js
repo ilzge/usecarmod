@@ -20,12 +20,12 @@ if (body) {
     const latReg = /("latitude"\s*:\s*"?)\d+\.?\d*("?)/g;
 
     // 3. 生成 12 位随机数，加上 .30 正好是 14 位小数
-    const lonSuffix = generateNonZeroRandom(12);
-    const latSuffix = generateNonZeroRandom(12);
+    const lonSuffix = generateNonZeroRandom(11);
+    const latSuffix = generateNonZeroRandom(11);
 
     // 4. 执行替换
-    body = body.replace(lonReg, `$1116.30${lonSuffix}$2`);
-    body = body.replace(latReg, `$139.82${latSuffix}$2`);
+    body = body.replace(lonReg, `$1116.308${lonSuffix}$2`);
+    body = body.replace(latReg, `$139.826${latSuffix}$2`);
     
     // 打印日志方便在小火箭的“脚本”日志里调试（正式使用时可删除）
     // console.log("修改后的请求体: " + body);
