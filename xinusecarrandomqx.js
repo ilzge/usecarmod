@@ -13,16 +13,16 @@ if (body) {
     const lonReg = /("longitude"\s*:\s*"?)\d+\.?\d*("?)/g;
     const latReg = /("latitude"\s*:\s*"?)\d+\.?\d*("?)/g;
 
-    const lonSuffix = generateNonZeroRandom(12);
-    const latSuffix = generateNonZeroRandom(12);
+    const lonSuffix = generateNonZeroRandom(11);
+    const latSuffix = generateNonZeroRandom(11);
 
     // 使用函数式替换，彻底规避 $1116 这种歧义
     body = body.replace(lonReg, (match, p1, p2) => {
-        return p1 + "116.30" + lonSuffix + p2;
+        return p1 + "116.308" + lonSuffix + p2;
     });
 
     body = body.replace(latReg, (match, p1, p2) => {
-        return p1 + "39.82" + latSuffix + p2;
+        return p1 + "39.826" + latSuffix + p2;
     });
 }
 
