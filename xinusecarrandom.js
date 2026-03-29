@@ -28,7 +28,6 @@ if (body) {
     body = body.replace(latReg, `$139.826${latSuffix}$2`);
     
     // 打印日志方便在小火箭的“脚本”日志里调试（正式使用时可删除）
-    // console.log("修改后的请求体: " + body);
 }
 
 // 5. 必须调用 $done
