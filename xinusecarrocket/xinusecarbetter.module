@@ -1,5 +1,5 @@
 #!name=定点范围20260426
-#!desc=可以修改特定软件的范围
+#!desc=可以修改特定软件的范围，拥有更好的伪装效果
 [Rule]
 DOMAIN-KEYWORD,patentexam,DIRECT
 
